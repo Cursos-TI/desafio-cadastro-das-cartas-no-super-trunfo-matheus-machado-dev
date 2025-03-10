@@ -9,43 +9,57 @@
 int main() {
     // Sugestão: Defina variáveis separadas para cada atributo da cidade.
     // Exemplos de atributos: código da cidade, nome, população, área, PIB, número de pontos turísticos.
-    int populacao, numeroDePontosTuristicos, carta;
-    float area, PIB;
-    char estado[4] ,nomeCidade[10], codigo[50];
+    int carta;
+    char estado[50];
+    char codigo[20];
+    char nomeCidade[100];
+    int populacao;
+    float area;
+    double PIB;
+    int numerosTuristicos;
 
+    //Entrada de dados 
     printf("Carta: \n");
     scanf("%d", &carta);
 
     printf("Estado: \n");
-    scanf("%s", &estado);
+    scanf("%s", estado); 
 
     printf("Código: \n");
-    scanf("%s", &codigo);
+    scanf("%s", codigo);
 
     printf("Nome da Cidade: \n");
-    scanf("%s", &nomeCidade);
+    getchar(); // Capturar o '\n'
+    fgets(nomeCidade, sizeof(nomeCidade), stdin); // fgets = ler uma linha completa, incluindo espaços
 
     printf("População: \n");
     scanf("%d", &populacao);
 
-    printf("Área: \n");
-    scanf("%f", &area ,"km²");
+    printf("Área (em km²): \n");
+    scanf("%f", &area);
 
-    printf("PIB: \n");
-    scanf("%f", &PIB, "bilhões de reais");
+    printf("PIB (em bilhões de reais): \n");
+    scanf("%lf", &PIB);
 
     printf("Números de Pontos Turísticos: \n");
-    scanf("%d", &numeroDePontosTuristicos);
+    scanf("%d", &numerosTuristicos);
 
-    printf("\nDados da Cidade:\n");
+
+    // saida de dados
+    printf("\nInformações da Cidade:\n");
     printf("Carta: %d\n", carta);
     printf("Estado: %s\n", estado);
     printf("Código: %s\n", codigo);
     printf("Nome da Cidade: %s\n", nomeCidade);
-    printf("População: %d\n", populacao);
-    printf("Área: %.2f km²\n", area);
-    printf("PIB: %.2f bilhões de reais\n", PIB);
-    printf("Número de Pontos Turísticos: %d\n", numeroDePontosTuristicos);
+    printf("Área: %.4f km²\n", area);
+    printf("PIB: %.3lf bilhões de reais\n", PIB);
+    printf("Número de Pontos Turísticos: %d\n", numerosTuristicos);
+    printf("Densidade Populacional: %.4f hab/km²\n", (float)populacao/area);
+    printf("PIB per Capita: %.5f\n reais",(float)PIB/populacao);
+
+    return 0;
+
+
 
 
     
